@@ -1,7 +1,9 @@
 module.exports = {
   apps : [{
-    name      : 'translate_bot',
+    name      : 'bot',
     script    : 'index.js',
+    output: './logs/out.log',
+    error: './logs/error.log',
     env: {
       NODE_ENV: 'development'
     },
