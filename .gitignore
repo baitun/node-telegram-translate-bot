@@ -4,3 +4,4 @@ current
 source/
 log/
 .vscode
+app-env.sh
