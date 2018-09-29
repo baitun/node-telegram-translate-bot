@@ -3,3 +3,4 @@ node_modules
 current
 source/
 log/
+.vscode
