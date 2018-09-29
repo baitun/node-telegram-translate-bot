@@ -19,7 +19,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@bitbucket.org:savinyurii/translate_bot.git',
       path : '/home/projects/savin/translate_bot/',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+      'post-deploy' : 'yarn install && pm2 reload ecosystem.config.js --env production'
     }
   }
 };
