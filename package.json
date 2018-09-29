@@ -1,7 +1,11 @@
 {
   "name": "translate_bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple translate bot for Telegram. It available via http://t.me/justtranslate_bot",
+  "repository": {
+    "type": "git",
+    "url": "https://savinyurii@bitbucket.org/savinyurii/translate_bot.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
