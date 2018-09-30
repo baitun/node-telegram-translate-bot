@@ -17,7 +17,7 @@ module.exports = {
       user : 'savin',
       host : 'node3.ortant.ru',
       ref  : 'origin/master',
-      repo : 'git@bitbucket.org:savinyurii/translate_bot.git',
+      repo : 'https://github.com/baitun/node-telegram-translate-bot.git',
       path : '/home/projects/savin/translate_bot/',
       'post-deploy' : 'yarn install && pm2 reload ecosystem.config.js --env production'
     }
