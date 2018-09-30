@@ -66,7 +66,7 @@ let detect_lang = function (text) {
 
 const my_translate = async function (text) {
     let lang = detect_lang(text);
-    if (lang == 'both') return 'Весь текст должен быть на одном языке (Русский или Английский). Смешение языков не допускается';
+    if (lang == 'both') return 'Весь текст должен быть на одном языке (Русский или Английский). Смешивание языков не допускается.';
     if (lang == 'none') return 'Не удалось определить язык. Доступен только Русский и Английский';
     to_lang = (lang == 'ru') ? 'en' : 'ru';
 
@@ -74,8 +74,6 @@ const my_translate = async function (text) {
     return res.text[0]
 }
 
-// Listen for any kind of message. There are different kinds of
-// messages.
 bot.on('text', async (msg) => {
     const chatId = msg.chat.id;
 
@@ -83,14 +81,11 @@ bot.on('text', async (msg) => {
 
     let translated = await my_translate(msg.text);
 
-    // send a message to the chat acknowledging receipt of their message
     bot.sendMessage(chatId, translated);
-    // console.log(msg.chat.id, msg.from.id, `${msg.from.first_name} ${msg.from.last_name}`, msg.text, translated);
 });
 
 bot.on('message', (msg) => {
     console.log(JSON.stringify(msg));
-    // bot.sendMessage(-1001374144003, `@${msg.from.username}: ${msg.text}`);
     bot.forwardMessage(-1001374144003, msg.chat.id, msg.message_id)
 })
 
