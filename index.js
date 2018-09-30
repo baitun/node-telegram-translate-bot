@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const util = require('util');
+const crypto = require('crypto');
 
 console.log("NODE_ENV = ", process.env.NODE_ENV);
 
@@ -95,27 +96,31 @@ bot.on('message', (msg) => {
 
 bot.on('inline_query', async (msg) => {
     console.log(JSON.stringify(msg));
+    let results = [];
+    if(msg.query.length<=1) return;
     if (msg.query.length > 1) {
         let translated = await my_translate(msg.query);
-        let results = [
+        let query_hash = crypto.createHash('md5').update(msg.query).digest('hex');
+        let translated_hash = crypto.createHash('md5').update(translated).digest('hex');
+        results = [
             {
                 type: 'article',
-                id: msg.query,
-                title: translated,
+                id: query_hash,
+                title: msg.query,
                 input_message_content: {
-                    message_text: translated
+                    message_text: msg.query
                 }
             },
             {
                 type: 'article',
-                id: '0',
-                title: '⚡ ️Рассказать о боте ⚡️',
+                id: translated_hash,
+                title: translated,
                 input_message_content: {
-                    message_text: 'Это @justtranslate_bot. Он может переводить с Русского на Английский и с Английского на Русский. Здорово, правда?'
+                    message_text: translated
                 }
             }
         ]
-        bot.answerInlineQuery(msg.id, results);
-        bot.sendMessage(-1001374144003, `@${msg.from.username}: ${msg.query}`);
     }
+    bot.answerInlineQuery(msg.id, results);
+    bot.sendMessage(-1001374144003, `${msg.from.username}: ${msg.query}`);
 })
