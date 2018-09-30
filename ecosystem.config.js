@@ -14,11 +14,13 @@ module.exports = {
 
   deploy : {
     production : {
-      user : 'savin',
-      host : 'node3.ortant.ru',
-      ref  : 'origin/master',
-      repo : 'https://github.com/baitun/node-telegram-translate-bot.git',
-      path : '/home/projects/savin/translate_bot/',
+      'user' : 'savin',
+      'host' : 'node3.ortant.ru',
+      'ref'  : 'origin/master',
+      'repo' : 'https://github.com/baitun/node-telegram-translate-bot.git',
+      'path' : '/home/projects/savin/translate_bot/',
+      'pre-setup': "apt-get install git ; ls -la",
+      'post-setup': "ls -la",
       'post-deploy' : 'yarn install && pm2 reload ecosystem.config.js --env production'
     }
   }
