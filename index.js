@@ -109,5 +109,8 @@ bot.on('inline_query', async (msg) => {
         ]
     }
     bot.answerInlineQuery(msg.id, results);
-    bot.sendMessage(-1001374144003, `${msg.from.username}: ${msg.query}`);
+})
+
+bot.on('chosen_inline_result', msg => {
+    bot.sendMessage(-1001374144003, `${msg.from.username}: ${JSON.stringify(msg)}`);
 })
