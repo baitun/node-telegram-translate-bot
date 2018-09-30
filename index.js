@@ -84,16 +84,17 @@ bot.on('text', async (msg) => {
 
     // send a message to the chat acknowledging receipt of their message
     bot.sendMessage(chatId, transleted);
-    console.log(msg.chat.id, msg.from.id, `${msg.from.first_name} ${msg.from.last_name}`, msg.text, transleted);
+    // console.log(msg.chat.id, msg.from.id, `${msg.from.first_name} ${msg.from.last_name}`, msg.text, transleted);
 });
 
 bot.on('message', (msg) => {
-    // console.log(msg);
+    console.log(JSON.stringify(msg));
     // bot.sendMessage(-1001374144003, `@${msg.from.username}: ${msg.text}`);
     bot.forwardMessage(-1001374144003, msg.chat.id, msg.message_id)
 })
 
 bot.on('inline_query', async (msg) => {
+    console.log(JSON.stringify(msg));
     if (msg.query.length > 1) {
         let translated = await my_translate(msg.query);
         let results = [
