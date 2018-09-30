@@ -3,17 +3,32 @@ const util = require('util');
 
 console.log("NODE_ENV = ", process.env.NODE_ENV);
 
-// You can get it here: https://translate.yandex.ru/developers/keys
-const ya_translate_key = process.env.YANDEX_TRANSLATE_TOKEN
+if(!process.env.YANDEX_TRANSLATE_TOKEN) { 
+    console.error(`
+        Yandex translete token is not set up
+        Get it here https://translate.yandex.ru/developers/keys
+        And then execute following command:
+        export YANDEX_TRANSLATE_TOKEN="YOUR_TOKEN"
+    `);
+    process.exit();
+}
 
-let translate = require('yandex-translate')(ya_translate_key);
+if(!process.env.TELEGRAM_BOT_TOKEN) { 
+    console.error(`
+        Telegram bot token is not set up
+        Get it from @botfather
+        And then execute following command:
+        export TELEGRAM_BOT_TOKEN="YOUR_TOKEN"
+    `);
+    process.exit();
+}
+
+let translate = require('yandex-translate')(process.env.YANDEX_TRANSLATE_TOKEN);
 let yat = {
     translate: util.promisify(translate.translate),
     detect: util.promisify(translate.detect)
 }
 
-// replace the value below with the Telegram token you receive from @BotFather
-let token = process.env.TELEGRAM_BOT_TOKEN;
 let request_options = {};
 
 // if run locally in develop mode, use proxy to baypass roskomnadzor restrictions
@@ -31,7 +46,7 @@ if (process.env.NODE_ENV == 'dev') {
 }
 
 // Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(token, {
+const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, {
     polling: true,
     request: request_options
 });
