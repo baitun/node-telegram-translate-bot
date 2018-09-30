@@ -1,5 +1,5 @@
 # node-telegram-translate-bot
-Simple Telegram translate bot https://t.me/justtranslate_bot
+Simple Telegram translate bot https://t-do.ru/justtranslate_bot
 
 ## How to start
 ```sh
@@ -7,8 +7,8 @@ npm -g i pm2 yarn
 yarn install
 ```
 Then you need to get tokens
-You can get Yandex translate token here: https://translate.yandex.ru/developers/keys
-To get Telegram bot token, message to [@BotFather](https://t-do.ru/botfather)
+- You can get Yandex translate token here: https://translate.yandex.ru/developers/keys
+- To get Telegram bot token, message to [@BotFather](https://t-do.ru/botfather)
 ```sh
 export YANDEX_TRANSLATE_TOKEN="PASTE_YOUR_TOKEN"
 export TELEGRAM_BOT_TOKEN="PASTE_YOUR_TOKEN"
