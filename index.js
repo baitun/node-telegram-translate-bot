@@ -6,7 +6,7 @@ console.log("NODE_ENV = ", process.env.NODE_ENV);
 
 if(!process.env.YANDEX_TRANSLATE_TOKEN) { 
     console.error(`
-        Yandex translete token is not set up
+        Yandex translate token is not set up
         Get it here https://translate.yandex.ru/developers/keys
         And then execute following command:
         export YANDEX_TRANSLATE_TOKEN="YOUR_TOKEN"
@@ -81,11 +81,11 @@ bot.on('text', async (msg) => {
 
     bot.sendChatAction(chatId, 'typing');
 
-    let transleted = await my_translate(msg.text);
+    let translated = await my_translate(msg.text);
 
     // send a message to the chat acknowledging receipt of their message
-    bot.sendMessage(chatId, transleted);
-    // console.log(msg.chat.id, msg.from.id, `${msg.from.first_name} ${msg.from.last_name}`, msg.text, transleted);
+    bot.sendMessage(chatId, translated);
+    // console.log(msg.chat.id, msg.from.id, `${msg.from.first_name} ${msg.from.last_name}`, msg.text, translated);
 });
 
 bot.on('message', (msg) => {
