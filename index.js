@@ -105,14 +105,6 @@ bot.on('inline_query', async (msg) => {
         results = [
             {
                 type: 'article',
-                id: query_hash,
-                title: msg.query,
-                input_message_content: {
-                    message_text: msg.query
-                }
-            },
-            {
-                type: 'article',
                 id: translated_hash,
                 title: translated,
                 input_message_content: {
