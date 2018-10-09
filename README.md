@@ -4,6 +4,8 @@ Simple Telegram translate bot https://t-do.ru/justtranslate_bot
 ## How to start
 ```sh
 npm -g i pm2 yarn
+git clone https://github.com/baitun/node-telegram-translate-bot.git
+cd node-telegram-translate-bot
 yarn install
 ```
 Then you need to get tokens
