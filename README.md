@@ -16,7 +16,7 @@ export YANDEX_TRANSLATE_TOKEN="PASTE_YOUR_TOKEN"
 export TELEGRAM_BOT_TOKEN="PASTE_YOUR_TOKEN"
 ```
 
-If Telegram is blocked in your country and you don't have VPN, run Tor Browser and run
+If Telegram is blocked in your country and you don't have VPN, open the Tor Browser and run following command:
 ```sh
 export NODE_ENV="dev"
 ```
