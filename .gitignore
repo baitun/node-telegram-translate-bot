@@ -6,3 +6,4 @@ log/
 .vscode
 app-env.sh
 lib
+.env
