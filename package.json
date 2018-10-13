@@ -12,8 +12,8 @@
     "build": "tsc -p .",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Yury Savin <https://github.com/baitun>",
+  "license": "MIT",
   "dependencies": {
     "node-telegram-bot-api": "^0.30.0",
     "yandex-translate": "^2.1.1"
