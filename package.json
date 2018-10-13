@@ -11,8 +11,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Yury Savin <https://github.com/baitun>",
+  "license": "MIT",
   "dependencies": {
     "node-telegram-bot-api": "^0.30.0",
     "yandex-translate": "^2.1.1"
