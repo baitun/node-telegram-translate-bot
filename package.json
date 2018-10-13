@@ -16,14 +16,14 @@
   "license": "ISC",
   "dependencies": {
     "node-telegram-bot-api": "^0.30.0",
-    "socks5-https-client": "^1.2.1",
     "yandex-translate": "^2.1.1"
   },
   "devDependencies": {
+    "socks5-https-client": "^1.2.1",
     "@types/node": "^10.11.7",
     "@types/node-telegram-bot-api": "^0.30.3",
     "nodemon": "^1.18.4",
     "ts-node": "^7.0.1",
-    "typescript": "^3.1.2"
+    "typescript": "^3.1.2"    
   }
 }
