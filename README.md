@@ -30,5 +30,9 @@ pm2 deploy production update
 ```
 [Learn more about pm2 deploy](https://pm2.io/doc/en/runtime/guide/easy-deploy-with-ssh/)
 
+## Dependencies
+- [yandex-translate](https://github.com/sidorares/yandex-translate)
+- [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api)
+
 ## Contacts
 If you have any questions, feel free to contact me via Telegram: [@savinyurii](https://t-do.ru/savinyurii)
