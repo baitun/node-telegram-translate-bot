@@ -95,7 +95,7 @@ bot.on('message', (msg) => {
 
 bot.on('inline_query', async (msg) => {
     console.log(JSON.stringify(msg));
-    let results:Array<any> = [];
+    let results:Array<TelegramBot.InlineQueryResult> = [];
     if(msg.query.length<=1) return;
     if (msg.query.length > 1) {
         let translated = await my_translate(msg.query);
