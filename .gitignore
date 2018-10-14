@@ -1,9 +1,5 @@
 node_modules
-.deploys
-current
-source/
-log/
+logs
 .vscode
-app-env.sh
 lib
 .env
