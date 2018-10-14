@@ -48,13 +48,12 @@ if (process.env.NODE_ENV == 'dev') {
         url: ""
     }
 }
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "";
 let options:TelegramBot.ConstructorOptions = {
     polling: true,
     request: request_options
 }
 // Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, options);
+const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN || "", options);
 
 let detect_lang = function (text:string) {
     let ru = false, en = false;
