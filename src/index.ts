@@ -1,6 +1,6 @@
 import TelegramBot from 'node-telegram-bot-api';
-import util from 'util'
-import crypto from 'crypto'
+import util from 'util';
+import crypto from 'crypto'; // I use it for generate md5 hashes
 import { Options } from 'request';
 // import YandexTranslate from 'yandex-translate'
 
@@ -36,7 +36,7 @@ let request_options:Options = {url: ""};
 
 // if run locally in develop mode, use proxy to baypass roskomnadzor restrictions
 if (process.env.NODE_ENV == 'dev') {
-    const Agent = require('socks5-https-client/lib/Agent')
+    const Agent = require('socks5-https-client/lib/Agent');
     request_options = {
         agentClass: Agent,
         agentOptions: {
@@ -54,7 +54,7 @@ let options:TelegramBot.ConstructorOptions = {
     request: request_options
 }
 // Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, );
+const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, options);
 
 let detect_lang = function (text:string) {
     let ru = false, en = false;
