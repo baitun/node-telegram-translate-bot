@@ -1,7 +1,7 @@
 module.exports = {
   apps : [{
     name      : 'bot',
-    script    : 'index.js',
+    script    : 'lib/index.js',
     output: './logs/out.log',
     error: './logs/error.log',
     env: {
@@ -21,7 +21,7 @@ module.exports = {
       'path' : '/home/projects/savin/translate_bot/',
       // 'pre-setup': "apt-get install git ; ls -la",
       'post-setup': "ls -la",
-      'post-deploy' : 'yarn install && pm2 reload ecosystem.config.js --env production'
+      'post-deploy' : 'yarn install && yarn build && pm2 reload ecosystem.config.js --env production'
     }
   }
 };
