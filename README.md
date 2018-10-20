@@ -26,7 +26,9 @@ If Telegram is blocked in your country and you don't have VPN, open the Tor Brow
 NODE_ENV="dev" yarn start
 ```
 
-To deploy bot on server, ecdit [ecosystem.config.js](ecosystem.config.js) file and run:
+## Deploy with PM2
+
+To deploy bot on server, edit [ecosystem.config.js](ecosystem.config.js) file and run:
 ```sh
 pm2 deploy production setup
 pm2 deploy production update
