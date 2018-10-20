@@ -1,6 +1,9 @@
-const TelegramBot = require('node-telegram-bot-api');
-const util = require('util');
-const crypto = require('crypto');
+require('dotenv').config();
+import TelegramBot from 'node-telegram-bot-api';
+import util from 'util';
+import crypto from 'crypto'; // I use it for generate md5 hashes
+import { Options } from 'request';
+// import YandexTranslate from 'yandex-translate'
 
 console.log("NODE_ENV = ", process.env.NODE_ENV);
 
@@ -17,7 +20,7 @@ if(!process.env.YANDEX_TRANSLATE_TOKEN) {
 if(!process.env.TELEGRAM_BOT_TOKEN) { 
     console.error(`
         Telegram bot token is not set up
-        Get it from @botfather
+        Get it from https://t-do.ru/botfather
         And then execute following command:
         export TELEGRAM_BOT_TOKEN="YOUR_TOKEN"
     `);
@@ -30,11 +33,11 @@ let yat = {
     detect: util.promisify(translate.detect)
 }
 
-let request_options = {};
+let request_options:Options = {url: ""};
 
 // if run locally in develop mode, use proxy to baypass roskomnadzor restrictions
 if (process.env.NODE_ENV == 'dev') {
-    const Agent = require('socks5-https-client/lib/Agent')
+    const Agent = require('socks5-https-client/lib/Agent');
     request_options = {
         agentClass: Agent,
         agentOptions: {
@@ -42,17 +45,18 @@ if (process.env.NODE_ENV == 'dev') {
             // this is Tor socks5 proxy. For it to work, you need to run Tor Browser
             socksHost: '127.0.0.1',
             socksPort: 9150
-        }
+        },
+        url: ""
     }
 }
-
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, {
+let options:TelegramBot.ConstructorOptions = {
     polling: true,
     request: request_options
-});
+}
+// Create a bot that uses 'polling' to fetch new updates
+const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN || "", options);
 
-let detect_lang = function (text) {
+let detect_lang = function (text:string) {
     let ru = false, en = false;
     for (let i = 0; i < text.length; i++) {
         ru = ru || (text[i].toUpperCase() >= 'А' && text[i].toUpperCase() <= 'Я');
@@ -64,11 +68,11 @@ let detect_lang = function (text) {
     return 'none'
 }
 
-const my_translate = async function (text) {
+const my_translate = async function (text:string) {
     let lang = detect_lang(text);
     if (lang == 'both') return 'Весь текст должен быть на одном языке (Русский или Английский). Смешивание языков не допускается.';
     if (lang == 'none') return 'Не удалось определить язык. Доступен только Русский и Английский';
-    to_lang = (lang == 'ru') ? 'en' : 'ru';
+    let to_lang = (lang == 'ru') ? 'en' : 'ru';
 
     let res = await yat.translate(text, { to: to_lang });
     return res.text[0]
@@ -91,7 +95,7 @@ bot.on('message', (msg) => {
 
 bot.on('inline_query', async (msg) => {
     console.log(JSON.stringify(msg));
-    let results = [];
+    let results:Array<TelegramBot.InlineQueryResult> = [];
     if(msg.query.length<=1) return;
     if (msg.query.length > 1) {
         let translated = await my_translate(msg.query);
