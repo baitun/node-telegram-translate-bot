@@ -1,3 +1,4 @@
+require('dotenv').config();
 import TelegramBot from 'node-telegram-bot-api';
 import util from 'util';
 import crypto from 'crypto'; // I use it for generate md5 hashes
