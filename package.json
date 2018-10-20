@@ -10,7 +10,8 @@
   "scripts": {
     "start": "yarn build:live",
     "build": "tsc -p .",
-    "build:live": "nodemon --require dotenv/config --watch src/**/*.ts --exec ts-node src/index.ts"
+    "build:live": "nodemon --require dotenv/config --watch src/**/*.ts --exec ts-node src/index.ts",
+    "production": "node --require dotenv/config lib/index.js"
   },
   "author": "Yury Savin <https://github.com/baitun>",
   "license": "MIT",

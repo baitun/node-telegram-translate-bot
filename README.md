@@ -1,24 +1,29 @@
 # node-telegram-translate-bot
-Simple Telegram translate bot https://t-do.ru/justtranslate_bot
+Simple Telegram translate bot https://tele.click/justtranslate_bot
 
 ## How to start
+
 ```sh
 npm -g i pm2 yarn
 git clone https://github.com/baitun/node-telegram-translate-bot.git
 cd node-telegram-translate-bot
 yarn install
 ```
-Then you need to get tokens
+Then you need to get tokens:
 - You can get Yandex translate token here: https://translate.yandex.ru/developers/keys
-- To get Telegram bot token, message to [@BotFather](https://t-do.ru/botfather)
-```sh
-export YANDEX_TRANSLATE_TOKEN="PASTE_YOUR_TOKEN"
-export TELEGRAM_BOT_TOKEN="PASTE_YOUR_TOKEN"
+- To get Telegram bot token, message to [@BotFather](https://tele.click/botfather)
+
+And then add this tokens to `.env` file (this file is not tracking, so you need to create it). File should look like this:
+```
+YANDEX_TRANSLATE_TOKEN=""
+TELEGRAM_BOT_TOKEN=""
 ```
 
-If Telegram is blocked in your country and you don't have VPN, open the Tor Browser and run following command:
+Then you can start bot with `yarn start`
+
+If Telegram is blocked in your country and you don't have VPN, open the Tor Browser and use following command:
 ```sh
-export NODE_ENV="dev"
+NODE_ENV="dev" yarn start
 ```
 
 To deploy bot on server, ecdit [ecosystem.config.js](ecosystem.config.js) file and run:
@@ -29,4 +34,4 @@ pm2 deploy production update
 [Learn more about pm2 deploy](https://pm2.io/doc/en/runtime/guide/easy-deploy-with-ssh/)
 
 ## Contacts
-If you have any questions, feel free to contact me via Telegram: [@savinyurii](https://t-do.ru/savinyurii)
+If you have any questions, feel free to contact me via Telegram: [@savinyurii](https://tele.click/savinyurii)
