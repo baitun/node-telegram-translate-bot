@@ -1,7 +1,7 @@
 {
   "name": "translate_bot",
   "version": "2.0.0",
-  "description": "Simple translate bot for Telegram. It available via http://t.me/justtranslate_bot",
+  "description": "Simple translate bot for Telegram. It available via http://tele.click/justtranslate_bot",
   "repository": {
     "type": "git",
     "url": "https://github.com/baitun/node-telegram-translate-bot.git"
