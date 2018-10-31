@@ -1,5 +1,6 @@
 # node-telegram-translate-bot
-Simple Telegram translate bot [@justtranslate_bot](https://tele.click/justtranslate_bot)
+Simple Telegram translate bot [@justtranslate_bot](https://tele.click/justtranslate_bot)  
+![screenshot](https://pp.userapi.com/c850732/v850732137/2571f/sWmZvx1h4jI.jpg)
 
 ## How to start
 
