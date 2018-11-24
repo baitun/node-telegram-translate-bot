@@ -11,7 +11,8 @@
     "start": "yarn build:live",
     "build": "tsc -p .",
     "build:live": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
-    "production": "node lib/index.js"
+    "production": "node lib/index.js",
+    "deploy": "git push && pm2 deploy production update"
   },
   "author": "Yury Savin <https://github.com/baitun>",
   "license": "MIT",
