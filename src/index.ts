@@ -7,7 +7,10 @@ import { Options } from 'request';
 
 console.log("NODE_ENV = ", process.env.NODE_ENV);
 
-if(!process.env.YANDEX_TRANSLATE_TOKEN) { 
+const YANDEX_TRANSLATE_TOKEN:string = process.env.YANDEX_TRANSLATE_TOKEN||"";
+const TELEGRAM_BOT_TOKEN:string = process.env.TELEGRAM_BOT_TOKEN||"";
+
+if(!YANDEX_TRANSLATE_TOKEN) { 
     console.error(`
         Yandex translate token is not set up
         Get it here https://translate.yandex.ru/developers/keys
@@ -17,7 +20,7 @@ if(!process.env.YANDEX_TRANSLATE_TOKEN) {
     process.exit();
 }
 
-if(!process.env.TELEGRAM_BOT_TOKEN) { 
+if(!TELEGRAM_BOT_TOKEN) { 
     console.error(`
         Telegram bot token is not set up
         Get it from https://t-do.ru/botfather
@@ -27,7 +30,7 @@ if(!process.env.TELEGRAM_BOT_TOKEN) {
     process.exit();
 }
 
-let translate = require('yandex-translate')(process.env.YANDEX_TRANSLATE_TOKEN);
+let translate = require('yandex-translate')(YANDEX_TRANSLATE_TOKEN);
 let yat = {
     translate: util.promisify(translate.translate),
     detect: util.promisify(translate.detect)
@@ -54,7 +57,7 @@ let options:TelegramBot.ConstructorOptions = {
     request: request_options
 }
 // Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN || "", options);
+const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, options);
 
 let detect_lang = function (text:string) {
     let ru = false, en = false;
