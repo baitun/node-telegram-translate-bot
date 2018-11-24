@@ -11,8 +11,8 @@ if(!process.env.YANDEX_TRANSLATE_TOKEN) {
     console.error(`
         Yandex translate token is not set up
         Get it here https://translate.yandex.ru/developers/keys
-        And then execute following command:
-        export YANDEX_TRANSLATE_TOKEN="YOUR_TOKEN"
+        And then add to file .env this line:
+        YANDEX_TRANSLATE_TOKEN="YOUR_TOKEN"
     `);
     process.exit();
 }
@@ -21,8 +21,8 @@ if(!process.env.TELEGRAM_BOT_TOKEN) {
     console.error(`
         Telegram bot token is not set up
         Get it from https://t-do.ru/botfather
-        And then execute following command:
-        export TELEGRAM_BOT_TOKEN="YOUR_TOKEN"
+        And then add to file .env this line:
+        TELEGRAM_BOT_TOKEN="YOUR_TOKEN"
     `);
     process.exit();
 }
