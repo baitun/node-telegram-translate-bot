@@ -1,5 +1,6 @@
 # node-telegram-translate-bot
 Simple Telegram translate bot [@justtranslate_bot](https://tele.click/justtranslate_bot)  
+Just send to the bot a message in English and the bot will translate it into Russian or vice versa.
 
 ![screenshot](https://pp.userapi.com/c850732/v850732137/2571f/sWmZvx1h4jI.jpg)
 
