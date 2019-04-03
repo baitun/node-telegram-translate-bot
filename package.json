@@ -19,7 +19,7 @@
   "dependencies": {
     "dotenv": "^7.0.0",
     "node-telegram-bot-api": "^0.30.0",
-    "yandex-translate": "^2.1.1"
+    "yandex-translate": "^2.1.2"
   },
   "devDependencies": {
     "@types/node": "10.14.4",
