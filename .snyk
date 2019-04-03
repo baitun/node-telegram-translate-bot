@@ -1,0 +1,17 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:hoek:20180212':
+    - yandex-translate > request > hawk > hoek:
+        patched: '2019-04-03T12:26:48.861Z'
+    - yandex-translate > request > hawk > boom > hoek:
+        patched: '2019-04-03T12:26:48.861Z'
+    - yandex-translate > request > hawk > sntp > hoek:
+        patched: '2019-04-03T12:26:48.861Z'
+    - yandex-translate > request > hawk > cryptiles > boom > hoek:
+        patched: '2019-04-03T12:26:48.861Z'
+  SNYK-JS-LODASH-567746:
+    - node-telegram-bot-api > request-promise > request-promise-core > lodash:
+        patched: '2020-05-01T01:00:17.242Z'
