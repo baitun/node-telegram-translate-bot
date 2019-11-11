@@ -18,12 +18,12 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.0.0",
-    "node-telegram-bot-api": "^0.30.0",
+    "node-telegram-bot-api": "^0.40.0",
     "yandex-translate": "^2.1.2"
   },
   "devDependencies": {
     "@types/node": "10.14.8",
-    "@types/node-telegram-bot-api": "0.31.0",
+    "@types/node-telegram-bot-api": "0.40.0",
     "nodemon": "1.19.1",
     "socks5-https-client": "1.2.1",
     "ts-node": "8.2.0",
