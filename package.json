@@ -27,6 +27,6 @@
     "nodemon": "1.19.1",
     "socks5-https-client": "1.2.1",
     "ts-node": "8.2.0",
-    "typescript": "3.4.4"
+    "typescript": "3.7.2"
   }
 }
