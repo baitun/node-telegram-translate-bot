@@ -63,12 +63,8 @@ let options: TelegramBot.ConstructorOptions = {
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, options);
 
 let detect_lang = function(text: string) {
-  let ru = false,
-    en = false;
-  for (let i = 0; i < text.length; i++) {
-    ru = ru || (text[i].toUpperCase() >= "А" && text[i].toUpperCase() <= "Я");
-    en = en || (text[i].toUpperCase() >= "A" && text[i].toUpperCase() <= "Z");
-  }
+  const ru = /[а-яё]+/i.test(text);
+  const en = /[a-z]+/i.test(text);
   if (ru && en) return "both";
   if (ru) return "ru";
   if (en) return "en";
